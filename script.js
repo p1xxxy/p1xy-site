@@ -1,6 +1,21 @@
 console.log("P1XY website loaded");
 const canvas = document.getElementById("network");
 const ctx = canvas.getContext("2d");
+const mouse = {
+    x: null,
+    y: null,
+    radius: 180
+};
+
+window.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+});
+
+window.addEventListener("mouseleave", () => {
+    mouse.x = null;
+    mouse.y = null;
+});
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -40,12 +55,31 @@ function update() {
 
         point.x += point.vx;
         point.y += point.vy;
+        point.vx *= 0.985;
+        point.vy *= 0.985;
 
         if (point.x <= 0 || point.x >= canvas.width)
             point.vx *= -1;
 
         if (point.y <= 0 || point.y >= canvas.height)
             point.vy *= -1;
+        if (mouse.x !== null) {
+
+    const dx = point.x - mouse.x;
+    const dy = point.y - mouse.y;
+
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance < mouse.radius && distance > 0) {
+
+        const force = (mouse.radius - distance) / mouse.radius;
+
+        point.vx += (dx / distance) * force * 0.04;
+        point.vy += (dy / distance) * force * 0.04;
+
+    }
+
+}
 
     }
 
