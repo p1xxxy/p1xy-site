@@ -30,6 +30,9 @@ window.addEventListener("resize", resizeCanvas);
 
 const points = [];
 const connections = [];
+const packets = [];
+const MAX_PACKETS = 5;
+let packetTimer = 0;
 
 const POINT_COUNT = 100;
 
@@ -91,12 +94,49 @@ function update() {
 
 // =========================
 
+function updatePackets() {
+
+    packetTimer++;
+
+    const spawnDelay = 20 + Math.random() * 40;
+
+    if (
+        packetTimer >= spawnDelay &&
+        packets.length < MAX_PACKETS &&
+        connections.length > 0
+    ) {
+        packetTimer = 0;
+
+        const connection =
+            connections[Math.floor(Math.random() * connections.length)];
+
+        packets.push({
+            connection,
+            progress: Math.random() * 0.2,
+            speed: 0.012 + Math.random() * 0.006,
+            size: 0.8 + Math.random() * 0.4
+        });
+    }
+    for (let i = packets.length - 1; i >= 0; i--) {
+
+        packets[i].progress += packets[i].speed;
+
+        if (packets[i].progress >= 1) {
+            packets.splice(i, 1);
+        }
+
+    }
+
+}
+
+// =========================
+
 function draw() {
 
     connections.length = 0;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const MAX_DISTANCE = 120;
+    const MAX_DISTANCE = 150;
 
     ctx.lineWidth = 1;
 
@@ -119,7 +159,7 @@ function draw() {
                     alpha
                 });
 
-                
+
 
                 ctx.shadowBlur = 12;
                 ctx.shadowColor = "#00b7ff";
@@ -143,6 +183,71 @@ function draw() {
                 ctx.stroke();
 
             }
+
+        }
+
+        for (const packet of packets) {
+
+            const from = points[packet.connection.from];
+            const to = points[packet.connection.to];
+
+            if (!from || !to) continue;
+
+            const x =
+                from.x + (to.x - from.x) * packet.progress;
+
+            const y =
+                from.y + (to.y - from.y) * packet.progress;
+
+            ctx.save();
+
+            ctx.translate(x, y);
+            ctx.scale(packet.size, packet.size);
+
+            const angle = Math.atan2(
+                to.y - from.y,
+                to.x - from.x
+            );
+
+            ctx.rotate(angle);
+
+            ctx.shadowBlur = 2;
+            let alpha = 1;
+
+            if (packet.progress < 0.15) {
+                alpha = packet.progress / 0.15;
+            }
+
+            if (packet.progress > 0.85) {
+                alpha = (1 - packet.progress) / 0.15;
+            }
+            ctx.fillStyle = `rgba(0,183,255,${alpha})`;
+            ctx.shadowColor = `rgba(0,183,255,${alpha})`;
+
+            ctx.shadowBlur = 7;
+            ctx.shadowColor = `rgba(0,183,255,${alpha})`;
+            ctx.beginPath();
+            ctx.arc(0, 0, 0.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            ctx.strokeStyle = "rgba(0,183,255,0.35)";
+            ctx.lineWidth = 1.2;
+
+            const gradient = ctx.createLinearGradient(-14, 0, 0, 0);
+
+            gradient.addColorStop(0, "rgba(0,183,255,0)");
+            gradient.addColorStop(0.7, "rgba(0,183,255,0.2)");
+            gradient.addColorStop(1, `rgba(0,183,255,${alpha})`);
+
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 1.4;
+
+            ctx.beginPath();
+            ctx.moveTo(-14, 0);
+            ctx.lineTo(0, 0);
+            ctx.stroke();
+
+            ctx.restore();
 
         }
 
@@ -175,6 +280,7 @@ function draw() {
 function animate() {
 
     update();
+    updatePackets();
     draw();
 
     requestAnimationFrame(animate);
