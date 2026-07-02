@@ -75,9 +75,11 @@ function update() {
             const dx = point.x - mouse.x;
             const dy = point.y - mouse.y;
 
-            const distance = Math.sqrt(dx * dx + dy * dy);
+            const distanceSquared = dx * dx + dy * dy;
 
-            if (distance < mouse.radius && distance > 0) {
+            if (distanceSquared < mouse.radius * mouse.radius) {
+
+                const distance = Math.sqrt(distanceSquared);
 
                 const force = (mouse.radius - distance) / mouse.radius;
 
@@ -147,11 +149,15 @@ function draw() {
             const dx = points[i].x - points[j].x;
             const dy = points[i].y - points[j].y;
 
-            const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < MAX_DISTANCE) {
+            const distanceSquared = dx * dx + dy * dy;
+
+            if (distanceSquared < MAX_DISTANCE * MAX_DISTANCE) {
+
+                const distance = Math.sqrt(distanceSquared);
 
                 const alpha = 1 - distance / MAX_DISTANCE;
+
 
                 connections.push({
                     from: i,
