@@ -365,3 +365,15 @@ footer {
     }
 }
 
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+
+    left: 47%;
+    transform: translateX(-50%);
+
+    font-size: 14px;
+    letter-spacing: 3px;
+
+    opacity: .0;
+}
