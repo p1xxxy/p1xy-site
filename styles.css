@@ -377,3 +377,69 @@ footer {
 
     opacity: .0;
 }
+
+.identity-text {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.identity-text p {
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.system-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.profile-row {
+    display: flex;
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+}
+
+.profile-key {
+
+    width: 100px;
+
+    color: var(--muted);
+
+    font-weight: 600;
+}
+
+.profile-separator {
+
+    width: 20px;
+
+    color: #00b7ff;
+
+    text-align: center;
+}
+
+.profile-value {
+
+    flex: 1;
+
+    font-weight: 600;
+}
+
+.profile-key {
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.profile-value {
+    font-weight: 600;
+    color: white;
+}
+
+.online {
+    color: #22c55e;
+}
