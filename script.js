@@ -300,3 +300,63 @@ animate();
 // =========================
 
 const journalOutput = document.getElementById("journal-output");
+
+function addLog(time, type, message) {
+
+    const line = document.createElement("div");
+    line.className = "journal-line";
+
+    line.innerHTML = `
+        <span class="journal-time">${time}</span>
+        <span class="journal-type ${type.toLowerCase()}">${type}</span>
+        <span class="journal-message">${message}</span>
+    `;
+
+    journalOutput.appendChild(line);
+
+}
+
+function getCurrentTime() {
+
+    const now = new Date();
+
+    return now.toLocaleTimeString("ru-RU", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+    });
+
+}
+
+const startupLogs = [
+
+    {
+        type: "INFO",
+        message: "Visitor connected"
+    },
+
+    {
+        type: "SUCCESS",
+        message: "Canvas engine initialized"
+    },
+
+    {
+        type: "SUCCESS",
+        message: "Identity module loaded"
+    },
+
+    {
+        type: "INFO",
+        message: "System Journal initialized"
+    }
+
+];
+startupLogs.forEach(log => {
+
+    addLog(
+        getCurrentTime(),
+        log.type,
+        log.message
+    );
+
+});
