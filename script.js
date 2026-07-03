@@ -294,3 +294,9 @@ function animate() {
 }
 
 animate();
+
+// =========================
+// SYSTEM JOURNAL
+// =========================
+
+const journalOutput = document.getElementById("journal-output");

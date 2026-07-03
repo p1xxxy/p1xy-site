@@ -11,6 +11,7 @@
     --blue2: #3b82f6;
     --text: #ffffff;
     --muted: #a8b3cf;
+    --success: #22c55e;
 }
 
 body {
@@ -586,4 +587,76 @@ footer {
 
     }
 
+}
+
+.journal-output {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    font-family: monospace;
+
+}
+
+.journal-line {
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+}
+
+.journal-time {
+
+    color: var(--muted);
+
+    width: 80px;
+
+}
+
+.journal-type {
+
+    width: 50px;
+
+    font-weight: 700;
+
+}
+
+.info {
+
+    color: var(--blue);
+
+}
+
+.success {
+
+    color: var(--success);
+
+}
+
+.warning {
+
+    color: #facc15;
+
+}
+
+.error {
+
+    color: #ef4444;
+
+}
+
+.journal-message {
+
+    flex: 1;
+
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    gap: 20px;
 }
