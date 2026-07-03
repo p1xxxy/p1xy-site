@@ -331,3 +331,37 @@ footer {
 
     pointer-events: none;
 }
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: reveal .8s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: .2s;
+}
+
+.delay-2 {
+    animation-delay: .4s;
+}
+
+.delay-3 {
+    animation-delay: .6s;
+}
+
+.delay-4 {
+    animation-delay: .8s;
+}
+
+.delay-5 {
+    animation-delay: 1s;
+}
+
+@keyframes reveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
