@@ -399,11 +399,34 @@ footer {
 .profile-row {
     display: flex;
     align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    padding: 10px 0 10px 16px;
+
     transition: .25s ease;
 
-    padding: 10px 0;
-
     border-bottom: 1px solid rgba(255, 255, 255, .05);
+}
+
+.profile-row::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 3px;
+    height: 100%;
+
+    background: var(--blue);
+
+    transform: scaleY(0);
+
+    transition: .25s;
+
 }
 
 .profile-row:hover {
@@ -412,6 +435,12 @@ footer {
     color: #00b7ff;
 
     border-bottom-color: rgba(0, 183, 255, .25);
+
+}
+
+.profile-row:hover::before {
+
+    transform: scaleY(0.8);
 
 }
 
@@ -438,23 +467,13 @@ footer {
 .profile-value {
 
     flex: 1;
+
+    color: white;
+
+    font-weight: 600;
+
     transition: .25s;
 
-    font-weight: 600;
-}
-
-.profile-key {
-    color: var(--muted);
-    font-weight: 500;
-}
-
-.profile-value {
-    font-weight: 600;
-    color: white;
-}
-
-.online {
-    color: #22c55e;
 }
 
 .window-header {
@@ -470,7 +489,23 @@ footer {
 
 .window-buttons {
     display: flex;
+    transition: .25s;
     gap: 8px;
+}
+
+.card:hover .window-buttons span:nth-child(1) {
+
+    background: #ff5f56;
+}
+
+.card:hover .window-buttons span:nth-child(2) {
+
+    background: #ffbd2e;
+}
+
+.card:hover .window-buttons span:nth-child(3) {
+
+    background: #27c93f;
 }
 
 .window-buttons span {
@@ -494,6 +529,14 @@ footer {
     text-transform: lowercase;
 }
 
+.card:hover .window-title {
+
+    color: var(--blue);
+
+    text-shadow: 0 0 12px rgba(0, 183, 255, .5);
+
+}
+
 .online {
 
     display: flex;
@@ -511,10 +554,6 @@ footer {
     border-radius: 50%;
 
     background: #22c55e;
-
-}
-
-.status-dot {
 
     box-shadow:
         0 0 6px #22c55e,
