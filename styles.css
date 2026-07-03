@@ -399,15 +399,27 @@ footer {
 .profile-row {
     display: flex;
     align-items: center;
+    transition: .25s ease;
 
     padding: 10px 0;
 
     border-bottom: 1px solid rgba(255, 255, 255, .05);
 }
 
+.profile-row:hover {
+
+    transform: translateX(6px);
+    color: #00b7ff;
+
+    border-bottom-color: rgba(0, 183, 255, .25);
+
+}
+
 .profile-key {
 
     width: 100px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
 
     color: var(--muted);
 
@@ -426,6 +438,7 @@ footer {
 .profile-value {
 
     flex: 1;
+    transition: .25s;
 
     font-weight: 600;
 }
@@ -442,4 +455,96 @@ footer {
 
 .online {
     color: #22c55e;
+}
+
+.window-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.window-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.window-buttons span {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .25);
+}
+
+.window-title {
+
+    font-size: 14px;
+
+    color: var(--muted);
+
+    letter-spacing: 1px;
+
+    text-transform: lowercase;
+}
+
+.online {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #22c55e;
+}
+
+.status-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+}
+
+.status-dot {
+
+    box-shadow:
+        0 0 6px #22c55e,
+        0 0 14px #22c55e;
+
+    animation: pulse 2s infinite;
+
+}
+
+@keyframes pulse {
+
+    0% {
+
+        transform: scale(1);
+        opacity: .8;
+
+    }
+
+    50% {
+
+        transform: scale(1.35);
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform: scale(1);
+        opacity: .8;
+
+    }
+
 }
