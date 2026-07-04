@@ -351,12 +351,16 @@ const startupLogs = [
     }
 
 ];
-startupLogs.forEach(log => {
+startupLogs.forEach((log, index) => {
 
-    addLog(
-        getCurrentTime(),
-        log.type,
-        log.message
-    );
+    setTimeout(() => {
+
+        addLog(
+            getCurrentTime(),
+            log.type,
+            log.message
+        );
+
+    }, index * 300);
 
 });
