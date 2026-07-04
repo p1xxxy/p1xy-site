@@ -1,3 +1,8 @@
+// =========================
+// DOM Elements
+// =========================
+const journalOutput = document.getElementById("journal-output");
+const journalSection = document.getElementById("journal");
 console.log("P1XY website loaded");
 const pulses = [];
 const canvas = document.getElementById("network");
@@ -299,9 +304,6 @@ animate();
 // SYSTEM JOURNAL
 // =========================
 
-const journalOutput = document.getElementById("journal-output");
-const journalSection = document.getElementById("journal");
-
 function addLog(time, type, message) {
 
     const line = document.createElement("div");
@@ -329,6 +331,11 @@ function getCurrentTime() {
 
 }
 
+// =========================
+// Data
+// =========================
+
+
 const startupLogs = [
 
     {
@@ -352,6 +359,11 @@ const startupLogs = [
     }
 
 ];
+
+// =========================
+// Functions
+// =========================
+
 function startJournal() {
 
     startupLogs.forEach((log, index) => {
@@ -389,4 +401,9 @@ function observeSection(section, callback) {
     observer.observe(section);
 
 }
+
+// =========================
+// Initialization
+// =========================
+
 observeSection(journalSection, startJournal);
