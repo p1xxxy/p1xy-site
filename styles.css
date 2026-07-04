@@ -660,3 +660,65 @@ footer {
     font-weight: 600;
     gap: 20px;
 }
+
+/* ========================
+   SYSTEM METRICS
+ ======================== */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.metric-widget {
+    background: rgba(255, 255, 255, .02);
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 16px;
+    padding: 22px;
+
+    transition:
+        transform .25s,
+        border-color .25s,
+        box-shadow .25s;
+}
+
+.metric-widget:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(0, 183, 255, .35);
+
+    box-shadow: 0 0 20px rgba(0, 183, 255, .12);
+}
+
+.metric-label {
+    display: block;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+}
+
+.metric-value {
+    margin-top: 14px;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+.metric-wide {
+    grid-column: span 2;
+}
