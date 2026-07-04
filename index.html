@@ -209,37 +209,99 @@
 
     </section>
 
-    <section class="section container">
+    <section id="metrics" class="section container">
 
-        <div class="grid">
+        <h2 class="section-title">SYSTEM METRICS</h2>
 
-            <div class="card">
-                <h2 class="section-title">Терминал</h2>
+        <div class="metrics-grid">
 
-                <div class="terminal">
-                    $ whoami<br>
-                    daniil-babkin<br><br>
+            <div class="card metric-card">
 
-                    $ skills<br>
-                    linux nginx networking xray bash python<br><br>
+                <h3>Site Status</h3>
 
-                    $ status<br>
-                    building cool things...<br><br>
-
-                    $ hostname<br>
-                    p1xy.online
+                <div class="metric-value online">
+                    <span class="status-dot"></span>
+                    ONLINE
                 </div>
+
             </div>
 
-            <div class="card">
-                <h2 class="section-title">Статистика сервера</h2>
+            <div class="card metric-card" id="metric-uptime">
 
-                <div class="stats">
-                    <div><span>Uptime</span><span>12d 4h</span></div>
-                    <div><span>CPU</span><span>8%</span></div>
-                    <div><span>RAM</span><span>43%</span></div>
-                    <div><span>Disk</span><span>28%</span></div>
-                    <div><span>Load Avg</span><span>0.15</span></div>
+                <h3>Site Uptime</h3>
+
+                <div class="metric-value">
+                    245h 17m
+                </div>
+
+            </div>
+
+            <div class="card metric-card" id="metric-nginx">
+
+                <h3>Nginx</h3>
+
+                <div class="metric-value">
+                    RUNNING
+                </div>
+
+            </div>
+
+            <div class="card metric-card" id="metric-xray">
+
+                <h3>Xray</h3>
+
+                <div class="metric-value">
+                    RUNNING
+                </div>
+
+            </div>
+
+            <div class="card metric-card" id="metric-https">
+
+                <h3>HTTPS</h3>
+
+                <div class="metric-value">
+                    VALID
+                </div>
+
+            </div>
+
+            <div class="card metric-card" id="metric-domain">
+
+                <h3>Domain</h3>
+
+                <div class="metric-value">
+                    p1xy.online
+                </div>
+
+            </div>
+
+            <div class="card metric-card" id="metric-disk">
+
+                <h3>Disk Usage</h3>
+
+                <div class="metric-value">
+                    31%
+                </div>
+
+            </div>
+
+            <div class="card metric-card" id="metric-memory">
+
+                <h3>Memory</h3>
+
+                <div class="metric-value">
+                    43%
+                </div>
+
+            </div>
+
+            <div class="card metric-card metric-wide" id="metric-last-deploy">
+
+                <h3>Last Deploy</h3>
+
+                <div class="metric-value">
+                    2026-07-03 22:17 UTC
                 </div>
 
             </div>
@@ -352,6 +414,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="metrics.js"></script>
 
 </body>
 
