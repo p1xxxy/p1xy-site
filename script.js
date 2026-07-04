@@ -300,6 +300,7 @@ animate();
 // =========================
 
 const journalOutput = document.getElementById("journal-output");
+const journalSection = document.getElementById("journal");
 
 function addLog(time, type, message) {
 
@@ -351,16 +352,41 @@ const startupLogs = [
     }
 
 ];
-startupLogs.forEach((log, index) => {
+function startJournal() {
 
-    setTimeout(() => {
+    startupLogs.forEach((log, index) => {
 
-        addLog(
-            getCurrentTime(),
-            log.type,
-            log.message
-        );
+        setTimeout(() => {
 
-    }, index * 300);
+            addLog(
+                getCurrentTime(),
+                log.type,
+                log.message
+            );
 
-});
+        }, index * 300);
+
+    });
+
+}
+
+function observeSection(section, callback) {
+
+    const observer = new IntersectionObserver((entries) => {
+
+        const entry = entries[0];
+
+        if (entry.isIntersecting) {
+
+            callback();
+
+            observer.unobserve(section);
+
+        }
+
+    });
+
+    observer.observe(section);
+
+}
+observeSection(journalSection, startJournal);
