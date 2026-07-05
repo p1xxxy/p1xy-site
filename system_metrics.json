@@ -1,0 +1,11 @@
+{
+    "status": "ONLINE",
+    "uptime": "245h 17m",
+    "nginx": "RUNNING",
+    "xray": "RUNNING",
+    "https": "VALID",
+    "domain": "p1xy.online",
+    "disk": "31%",
+    "memory": "43%",
+    "deploy": "2026-07-05 01:37 UTC"
+}
