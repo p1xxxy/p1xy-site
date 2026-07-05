@@ -35,21 +35,11 @@ const metricElements = {
 // Data
 // =========================
 
-function getMetrics() {
+async function getMetrics() {
 
-    return {
+    const response = await fetch("/system_metrics.json");
 
-        status: "ONLINE",
-        uptime: "245h 17m",
-        nginx: "RUNNING",
-        xray: "RUNNING",
-        https: "VALID",
-        domain: "p1xy.online",
-        disk: "31%",
-        memory: "43%",
-        deploy: "2026-07-05 01:37 UTC"
-
-    };
+    return await response.json();
 
 }
 
@@ -58,9 +48,9 @@ function getMetrics() {
 // Functions
 // =========================
 
-function renderMetrics() {
+async function renderMetrics() {
 
-    const metrics = getMetrics();
+    const metrics = await getMetrics();
 
     Object.entries(metrics).forEach(([key, value]) => {
 
@@ -71,7 +61,7 @@ function renderMetrics() {
 }
 
 
-function initMetrics() {
+async function initMetrics() {
 
     console.log({
         metricStatus,
@@ -85,7 +75,7 @@ function initMetrics() {
         metricDeploy
     });
 
-    renderMetrics();
+    await renderMetrics();
 
 }
 initMetrics();
