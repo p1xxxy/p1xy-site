@@ -664,6 +664,36 @@ footer {
 /* ========================
    SYSTEM METRICS
  ======================== */
+.metric-bar {
+
+    margin-top: 18px;
+
+    width: 100%;
+    height: 6px;
+
+    background: rgba(255, 255, 255, .06);
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+}
+
+.metric-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(90deg,
+            var(--blue),
+            var(--blue2));
+
+    transition: width .4s ease;
+
+}
 
 .metrics-grid {
     display: grid;

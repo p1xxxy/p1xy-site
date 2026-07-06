@@ -91,6 +91,12 @@ async function renderMetrics() {
 
     Object.entries(metrics).forEach(([key, value]) => {
 
+        const metricDiskFill = document.getElementById("metric-disk-fill");
+        if (key === "disk") {
+
+            metricDiskFill.style.width = value;
+
+        }
         const element = metricElements[key];
         const config = metricConfig[key];
         const renderer = renderers[config.type];
