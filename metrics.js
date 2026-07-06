@@ -86,9 +86,16 @@ async function getMetrics() {
 // Functions
 // =========================
 
+function calculateSiteUptime(deployDate) {
+
+    console.log(deployDate);
+
+}
+
 async function renderMetrics() {
 
     const metrics = await getMetrics();
+    calculateSiteUptime(metrics.deploy);
 
     Object.entries(metrics).forEach(([key, value]) => {
 
