@@ -5,16 +5,14 @@
 // =========================
 // DOM Elements
 // =========================
+const dot = document.createElement("span");
+const renderers = {
 
-const metricStatus = document.getElementById("metric-status");
-const metricUptime = document.getElementById("metric-uptime");
-const metricNginx = document.getElementById("metric-nginx");
-const metricXray = document.getElementById("metric-xray");
-const metricHttps = document.getElementById("metric-https");
-const metricDomain = document.getElementById("metric-domain");
-const metricDisk = document.getElementById("metric-disk");
-const metricMemory = document.getElementById("metric-memory");
-const metricDeploy = document.getElementById("metric-deploy");
+    text: renderText,
+    status: renderStatus,
+    percentage: renderPercentage
+
+};
 const metrics = getMetrics();
 const metricElements = {
 
@@ -27,6 +25,53 @@ const metricElements = {
     disk: document.getElementById("metric-disk"),
     memory: document.getElementById("metric-memory"),
     deploy: document.getElementById("metric-deploy")
+
+};
+const metricConfig = {
+
+    status: {
+        type: "status",
+        success: ["ONLINE"]
+    },
+
+    uptime: {
+        type: "text"
+    },
+
+    nginx: {
+        type: "status",
+        success: ["RUNNING"]
+    },
+
+    xray: {
+        type: "status",
+        success: ["RUNNING"]
+    },
+
+    https: {
+        type: "status",
+        success: ["VALID"]
+    },
+
+    domain: {
+        type: "text"
+    },
+
+    disk: {
+        type: "percentage",
+        warning: 70,
+        critical: 90
+    },
+
+    memory: {
+        type: "percentage",
+        warning: 75,
+        critical: 90
+    },
+
+    deploy: {
+        type: "text"
+    }
 
 };
 
@@ -60,25 +105,26 @@ async function renderMetrics() {
 
 }
 
+initMetrics();
+function renderText(element, value) {
 
-async function initMetrics() {
-
-    console.log({
-        metricStatus,
-        metricUptime,
-        metricNginx,
-        metricXray,
-        metricHttps,
-        metricDomain,
-        metricDisk,
-        metricMemory,
-        metricDeploy
-    });
-
-    await renderMetrics();
+    element.textContent = "";
+    const dot = document.createElement("span");
+    dot.classList.add("status-dot");
+    element.append(dot);
+    element.append(value);
 
 }
-initMetrics();
+function renderStatus(element, value, config) {
+
+    element.textContent = "";
+
+}
+function renderPercentage(element, value, config) {
+
+    element.textContent = "";
+
+}
 // =========================
 // Initialization
 // =========================
