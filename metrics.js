@@ -137,10 +137,6 @@ function formatLastDeploy(deployDate) {
 
 }
 
-function formatLastDeploy(deployDate) {
-    return deployDate;
-}
-
 async function renderMetrics() {
 
     const metrics = await getMetrics();
