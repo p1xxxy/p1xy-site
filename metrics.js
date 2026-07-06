@@ -98,7 +98,10 @@ async function renderMetrics() {
 
     Object.entries(metrics).forEach(([key, value]) => {
 
-        metricElements[key].textContent = value;
+        const element = metricElements[key];
+        const config = metricConfig[key];
+        const renderer = renderers[config.type];
+        renderer(element, value, config);
 
     });
 
