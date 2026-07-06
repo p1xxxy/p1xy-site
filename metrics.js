@@ -88,7 +88,12 @@ async function getMetrics() {
 
 function calculateSiteUptime(deployDate) {
 
-    console.log(deployDate);
+    const deployTime = new Date(deployDate);
+    const now = new Date();
+
+    console.log(now);
+
+    console.log(deployTime);
 
 }
 
