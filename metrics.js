@@ -5,7 +5,7 @@
 // =========================
 // DOM Elements
 // =========================
-const metrics = getMetrics();
+const metricDiskFill = document.getElementById("metric-disk-fill");
 const metricElements = {
 
     status: document.getElementById("metric-status"),
@@ -91,7 +91,6 @@ async function renderMetrics() {
 
     Object.entries(metrics).forEach(([key, value]) => {
 
-        const metricDiskFill = document.getElementById("metric-disk-fill");
         if (key === "disk") {
 
             metricDiskFill.style.width = value;
@@ -106,7 +105,6 @@ async function renderMetrics() {
 
 }
 
-initMetrics();
 function renderText(element, value) {
 
     element.textContent = value;
@@ -134,3 +132,4 @@ function renderPercentage(element, value, config) {
 // =========================
 // Initialization
 // =========================
+renderMetrics();
