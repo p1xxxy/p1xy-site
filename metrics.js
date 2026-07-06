@@ -91,25 +91,26 @@ function calculateSiteUptime(deployDate) {
     const deployTime = new Date(deployDate);
     const now = new Date();
     const diff = now - deployTime;
-
-    console.log(diff);
-    console.log(now);
-
     const totalMinutes = Math.floor(diff / 1000 / 60);
     const days = Math.floor(totalMinutes / 1440);
     const hours = Math.floor((totalMinutes % 1440) / 60);
     const minutes = totalMinutes % 60;
+    if (days > 0) {
+        return `${days}d ${hours}h`;
+    }
 
-    console.log(totalMinutes);
-    console.log(deployTime);
-    console.log(days, hours, minutes);
+    if (hours > 0) {
+        return `${hours}h ${minutes}m`;
+    }
+
+    return `${minutes}m`;
 
 }
 
 async function renderMetrics() {
 
     const metrics = await getMetrics();
-    calculateSiteUptime(metrics.deploy);
+    metrics.uptime = calculateSiteUptime(metrics.deploy);
 
     Object.entries(metrics).forEach(([key, value]) => {
 
