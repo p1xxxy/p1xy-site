@@ -5,13 +5,6 @@
 // =========================
 // DOM Elements
 // =========================
-const renderers = {
-
-    text: renderText,
-    status: renderStatus,
-    percentage: renderPercentage
-
-};
 const metrics = getMetrics();
 const metricElements = {
 
