@@ -85,16 +85,30 @@ async function getMetrics() {
 // =========================
 // Functions
 // =========================
-
-function calculateSiteUptime(deployDate) {
+function getElapsedTime(deployDate) {
 
     const deployTime = new Date(deployDate);
     const now = new Date();
+
     const diff = now - deployTime;
+
     const totalMinutes = Math.floor(diff / 1000 / 60);
+
     const days = Math.floor(totalMinutes / 1440);
     const hours = Math.floor((totalMinutes % 1440) / 60);
     const minutes = totalMinutes % 60;
+
+    return {
+        days,
+        hours,
+        minutes
+    };
+
+}
+function calculateSiteUptime(deployDate) {
+
+    const { days, hours, minutes } = getElapsedTime(deployDate);
+
     if (days > 0) {
         return `${days}d ${hours}h`;
     }
@@ -107,10 +121,31 @@ function calculateSiteUptime(deployDate) {
 
 }
 
+function formatLastDeploy(deployDate) {
+
+    const { days, hours, minutes } = getElapsedTime(deployDate);
+
+    if (days > 0) {
+        return `${days}d ago`;
+    }
+
+    if (hours > 0) {
+        return `${hours}h ago`;
+    }
+
+    return `${minutes}m ago`;
+
+}
+
+function formatLastDeploy(deployDate) {
+    return deployDate;
+}
+
 async function renderMetrics() {
 
     const metrics = await getMetrics();
     metrics.uptime = calculateSiteUptime(metrics.deploy);
+    metrics.deploy = formatLastDeploy(metrics.deploy);
 
     Object.entries(metrics).forEach(([key, value]) => {
 
