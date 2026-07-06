@@ -96,11 +96,7 @@ async function renderMetrics() {
             metricDiskFill.style.width = value;
 
         }
-        const element = metricElements[key];
-        const config = metricConfig[key];
-        const renderer = renderers[config.type];
-        renderer(element, value, config);
-
+        metricElements[key].textContent = value;
     });
 
 }
