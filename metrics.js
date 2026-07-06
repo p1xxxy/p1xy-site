@@ -5,7 +5,6 @@
 // =========================
 // DOM Elements
 // =========================
-const dot = document.createElement("span");
 const renderers = {
 
     text: renderText,
@@ -108,21 +107,26 @@ async function renderMetrics() {
 initMetrics();
 function renderText(element, value) {
 
-    element.textContent = "";
-    const dot = document.createElement("span");
-    dot.classList.add("status-dot");
-    element.append(dot);
-    element.append(value);
+    element.textContent = value;
 
 }
 function renderStatus(element, value, config) {
 
     element.textContent = "";
 
+    const dot = document.createElement("span");
+
+    dot.classList.add("status-dot");
+
+    element.classList.add("online");
+
+    element.append(dot);
+    element.append(value);
+
 }
 function renderPercentage(element, value, config) {
 
-    element.textContent = "";
+    element.textContent = value;
 
 }
 // =========================
