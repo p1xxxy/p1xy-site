@@ -6,6 +6,7 @@
 // DOM Elements
 // =========================
 const metricDiskFill = document.getElementById("metric-disk-fill");
+const metricMemoryFill = document.getElementById("metric-memory-fill");
 const metricElements = {
 
     status: document.getElementById("metric-status"),
@@ -94,6 +95,11 @@ async function renderMetrics() {
         if (key === "disk") {
 
             metricDiskFill.style.width = value;
+
+        }
+        if (key === "memory") {
+
+            metricMemoryFill.style.width = value;
 
         }
         metricElements[key].textContent = value;
