@@ -90,10 +90,19 @@ function calculateSiteUptime(deployDate) {
 
     const deployTime = new Date(deployDate);
     const now = new Date();
+    const diff = now - deployTime;
 
+    console.log(diff);
     console.log(now);
 
+    const totalMinutes = Math.floor(diff / 1000 / 60);
+    const days = Math.floor(totalMinutes / 1440);
+    const hours = Math.floor((totalMinutes % 1440) / 60);
+    const minutes = totalMinutes % 60;
+
+    console.log(totalMinutes);
     console.log(deployTime);
+    console.log(days, hours, minutes);
 
 }
 
