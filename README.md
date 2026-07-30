@@ -103,9 +103,9 @@ Planned improvements:
 
 ## Preview
 
-<p align="center">
-<img src="P1XY_preview_light.gif" width="900">
-</p>
+
+[![P1XY Preview](images/preview.png)](https://github.com/p1xxxy/p1xy-site/blob/main/p1x.mp4)
+
 
 ---
 
