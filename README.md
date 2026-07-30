@@ -104,7 +104,7 @@ Planned improvements:
 ## Preview
 
 <p align="center">
-<img src="images/preview.png" width="900">
+<img src="P1XY_preview_light.gif" width="900">
 </p>
 
 ---
