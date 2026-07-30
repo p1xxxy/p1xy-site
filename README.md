@@ -121,6 +121,3 @@ Telegram: **@toxissimo**
 
 Website: **https://p1xy.online**
 
----
-
-⭐ If you like this project, feel free to leave a star.
