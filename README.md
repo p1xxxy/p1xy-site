@@ -55,12 +55,14 @@ The main goal was to build something lightweight, fast and maintainable.
 
 ```
 .
-├── assets/
-├── css/
-├── js/
-├── images/
+├── .github/workflows/
+├── .gitignore
+├── index.html
+├── metrics.js
 ├── system_metrics.json
 ├── index.html
+├── script.js
+├── styles.css
 └── README.md
 ```
 
