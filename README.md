@@ -104,7 +104,7 @@ Planned improvements:
 ## Preview
 
 <p align="center">
-  <video src="assets/p1x.mp4" width="900" controls autoplay loop muted></video>
+  <video src="https://github.com/p1xxxy/p1xy-site/blob/main/p1x.mp4" width="900" controls autoplay loop muted></video>
 </p>
 
 ---
