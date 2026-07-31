@@ -29,13 +29,13 @@ The main goal was to build something lightweight, fast and maintainable.
 
 ## Features
 
-- ⚡ Lightweight vanilla HTML/CSS/JavaScript
-- 🎨 Custom animated Canvas background
-- 🖥️ Responsive layout
-- 🚀 Automatic deployment via GitHub Actions
-- 🌐 Nginx configuration
-- 📊 System metrics endpoint
-- 🔒 Production-ready server configuration
+-  Lightweight vanilla HTML/CSS/JavaScript
+-  Custom animated Canvas background
+-  Responsive layout
+-  Automatic deployment via GitHub Actions
+-  Nginx configuration
+-  System metrics endpoint
+-  Production-ready server configuration
 
 ---
 
@@ -109,15 +109,5 @@ Planned improvements:
 <img src="p1x.on.png" width="900">
 </p>
 
----
 
-## Author
-
-**Daniil Babkin**
-
-Linux • DevOps • System Administration
-
-Telegram: **@toxissimo**
-
-Website: **https://p1xy.online**
 
